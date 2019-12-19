@@ -1,0 +1,166 @@
+# -*- coding:utf-8 -*-
+# file: 視窗.py
+#
+import tkinter										
+#import tkinter.messagebox 
+import random
+
+root = tkinter.Tk()
+label = tkinter.Label(root, text='請您猜 1~~20 整數的選擇:\n您有六次機會!')
+label.pack()
+button = tkinter.Button(root, text = '請按右上角 X 確定', bg='white', fg='red')
+button.pack()   															
+root.mainloop()
+
+secretNumber = random.randint(1, 20)
+
+for guessesTaken in range(1, 7):
+    root = tkinter.Tk()
+    label = tkinter.Label(root, text='請猜第 ' + str(guessesTaken) + '次')
+    label.pack()
+    button = tkinter.Button(root, text = '請按右上角 X 確定', bg='white', fg='red')
+    button.pack()   															
+    #root.mainloop()
+
+    #root =tkinter.Tk()
+    r = tkinter.IntVar()	    
+		    
+    radio = tkinter.Radiobutton(root,	
+			variable = r, 	
+			value = 1,	
+			text = '1')	
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 2,	
+			text = '2' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 3,	
+			text = '3' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 4,	
+			text = '4' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,	
+			variable = r, 	
+			value = 5,	
+			text = '5')	
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 6,	
+			text = '6' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 7,	
+			text = '7' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 8,	
+			text = '8' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,	
+			variable = r, 	
+			value = 9,	
+			text = '9')	
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 10,	
+			text = '10' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 11,	
+			text = '11' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 12,	
+			text = '12' )
+    radio.pack()
+    radio.pack()
+    radio = tkinter.Radiobutton(root,	
+			variable = r, 	
+			value = 13,	
+			text = '13')	
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 14,	
+			text = '14' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 15,	
+			text = '15' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 16,	
+			text = '16' )
+    radio.pack()
+
+    radio.pack()
+    radio = tkinter.Radiobutton(root,	
+			variable = r, 	
+			value = 17,	
+			text = '17')	
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 18,	
+			text = '18' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 19,	
+			text = '19' )
+    radio.pack()
+    radio = tkinter.Radiobutton(root,
+			variable = r,
+			value = 20,	
+			text = '20' )
+    radio.pack()
+
+    label = tkinter.Label(root, text = '請按右上角 X 確定', bg='white', fg='red')
+    label.pack()	
+    
+    root.mainloop()
+    
+    guess = r.get()
+    
+    if guess < secretNumber:
+        root = tkinter.Tk()
+        label = tkinter.Label(root, text='您猜的整數 ' + str(guess) + ',太小了。')
+        label.pack()
+        button = tkinter.Button(root, text = '請按右上角 X 再選', bg='white', fg='red')
+        button.pack()   															
+        root.mainloop()
+    elif guess > secretNumber:
+        root = tkinter.Tk()
+        label = tkinter.Label(root, text='您猜的整數 ' + str(guess) + ',太大了。')
+        label.pack()
+        button = tkinter.Button(root, text = '請按右上角 X 再選', bg='white', fg='red')
+        button.pack()   															
+        root.mainloop()
+
+    else:
+        break 
+
+if guess == secretNumber:
+    root = tkinter.Tk()
+    label = tkinter.Label(root, text='哇! 厲害! 答案是:' + str(guess) +' 您是第 ' + str(guessesTaken) + ' 次,就猜對了。')
+    label.pack()
+    root.mainloop()
+else:
+    root = tkinter.Tk()
+    label = tkinter.Label(root, text='喔! 有六次機會您都沒猜到,答案是: ' + str(secretNumber))
+    label.pack()
+    root.mainloop()
